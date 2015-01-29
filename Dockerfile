@@ -46,4 +46,4 @@ RUN cd .. && \
     rm -Rf ffmpeg-nuxeo
 
 # Expose default Tomcat and SSH ports
-EXPOSE 8080 22
+EXPOSE 8080
