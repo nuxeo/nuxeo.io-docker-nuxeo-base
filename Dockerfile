@@ -30,6 +30,7 @@ RUN sudo apt-get install -y \
     libreoffice \
     libwpd-tools \
     gimp \
+    exiftool \
     ghostscript
 
 WORKDIR /tmp
