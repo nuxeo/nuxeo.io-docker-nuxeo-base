@@ -5,10 +5,6 @@
 FROM       quay.io/nuxeoio/iobase
 MAINTAINER Nuxeo <contact@nuxeo.com>
 
-# Install Nuxeo Dependencies
-RUN perl -p -i -e "s/universe/universe multiverse/g" /etc/apt/sources.list
-
-
 # Small trick to Install fuse(libreoffice dependency) because of container permission issue.
 RUN apt-get -y install fuse || true
 RUN rm -rf /var/lib/dpkg/info/fuse.postinst
