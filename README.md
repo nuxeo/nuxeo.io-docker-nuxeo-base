@@ -1,9 +1,9 @@
-Nuxeo.io docker image for : awscli
+Nuxeo.io docker image for : nuxeo-base
 =====================================
 
-This repository holds the Dockerfile for `awscli` which is in use in [http://github.com/nuxeo/nuxeo.io](nuxeo.io)
+This repository holds the Dockerfile for `nuxeo-base` which is in use in [http://github.com/nuxeo/nuxeo.io](nuxeo.io).
 
-
+The image is needed all that stuff that is needed to run Nuxeo, like ImageMagick, LibreOffice, and more.
 
 About Nuxeo
 -----------
@@ -19,4 +19,3 @@ architecture, a powerful plug-in model and extensive packaging
 capabilities for building content applications.
 
 More information on: <http://www.nuxeo.com/>
-

@@ -1,4 +1,5 @@
-# Nuxeo IO Base image to run a nuxeo instance
+# Nuxeo IO Base, based on iobase image which install all Nuxeo instance needs
+# Note that Java is installed on child images to prevent from having several images version
 #
 # VERSION               0.0.1
 
@@ -9,7 +10,6 @@ MAINTAINER Nuxeo <contact@nuxeo.com>
 RUN apt-get -y install fuse || true
 RUN rm -rf /var/lib/dpkg/info/fuse.postinst
 RUN apt-get -y install fuse
-
 
 # Create Nuxeo user
 RUN useradd -m -d /home/nuxeo -p nuxeo nuxeo && adduser nuxeo sudo && chsh -s /bin/bash nuxeo
@@ -34,9 +34,9 @@ RUN sudo apt-get install -y \
     ghostscript
 
 WORKDIR /tmp
-ENV BUILD_YASM true
 
 # Build ffmpeg
+ENV BUILD_YASM true
 RUN git clone https://github.com/nuxeo/ffmpeg-nuxeo.git
 ENV LIBFAAC true
 WORKDIR ffmpeg-nuxeo
@@ -46,5 +46,8 @@ RUN ./build-ffmpeg.sh
 WORKDIR /tmp
 RUN rm -Rf ffmpeg-nuxeo
 
-# Expose default Tomcat and SSH ports
+# Expose Tomcat
 EXPOSE 8080
+
+# Update/Upgrade all packages on each build
+ONBUILD RUN apt-get update && apt-get upgrade -y
