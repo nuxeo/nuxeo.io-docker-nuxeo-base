@@ -33,6 +33,8 @@ RUN sudo apt-get install -y \
     exiftool \
     ghostscript
 
+ADD imagemagick-policy.xml /etc/ImageMagick/policy.xml
+
 WORKDIR /tmp
 
 # Build ffmpeg
